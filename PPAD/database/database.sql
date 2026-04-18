@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS ppad;
+
+USE ppad;
+
+CREATE USER IF NOT EXISTS `ppad`@`localhost` IDENTIFIED BY '123';
+
+GRANT ALL PRIVILEGES ON ppad.* TO `ppad`@`localhost`;
+
+FLUSH PRIVILEGES;
+
+CREATE TABLE IF NOT EXISTS `users`(
+    `id` INT(11) PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(40) NOT NULL,
+    `email` VARCHAR(100) UNIQUE NOT NULL,
+    `phone` VARCHAR(20),
+    `password` VARCHAR(255) NOT NULL,
+    `role` INT,
+    `language` INT,
+    `status` TINYINT DEFAULT(1)
+);
+
+-- CREATE TABLE IF NOT EXISTS `projects`();
+-- CREATE TABLE IF NOT EXISTS `tasks`();
+-- CREATE TABLE IF NOT EXISTS `employees`();
+-- CREATE TABLE IF NOT EXISTS `inventories`();
+-- CREATE TABLE IF NOT EXISTS `materials`();
+-- CREATE TABLE IF NOT EXISTS `tasks`();
+
+-- CREATE PROCEDURE ``
